@@ -1,0 +1,9 @@
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\obj\Debug\Lesson4.csprojAssemblyReference.cache
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\bin\Debug\Lesson4.exe.config
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\bin\Debug\Lesson4.exe
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\bin\Debug\Lesson4.pdb
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\bin\Debug\CommonComponents.dll
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\bin\Debug\CommonComponents.pdb
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\obj\Debug\Lesson4.csproj.CopyComplete
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\obj\Debug\Lesson4.exe
+D:\GitHub\GeekBrains_HomeWorks\Lesson4\obj\Debug\Lesson4.pdb

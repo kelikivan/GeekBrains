@@ -1,0 +1,10 @@
+D:\GeekBrains\Lesson1\Lesson1\Kelik\bin\Debug\Kelik.dll
+D:\GeekBrains\Lesson1\Lesson1\Kelik\bin\Debug\Kelik.pdb
+D:\GeekBrains\Lesson1\Lesson1\Kelik\obj\Debug\Kelik.csprojResolveAssemblyReference.cache
+D:\GeekBrains\Lesson1\Lesson1\Kelik\obj\Debug\Kelik.dll
+D:\GeekBrains\Lesson1\Lesson1\Kelik\obj\Debug\Kelik.pdb
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Kelik\bin\Debug\Kelik.dll
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Kelik\bin\Debug\Kelik.pdb
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Kelik\obj\Debug\Kelik.csprojAssemblyReference.cache
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Kelik\obj\Debug\Kelik.dll
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Kelik\obj\Debug\Kelik.pdb

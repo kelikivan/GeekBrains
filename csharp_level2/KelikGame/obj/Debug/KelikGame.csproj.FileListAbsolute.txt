@@ -1,0 +1,10 @@
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\bin\Debug\KelikGame.exe.config
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\bin\Debug\KelikGame.exe
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\bin\Debug\KelikGame.pdb
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\obj\Debug\KelikGame.csprojAssemblyReference.cache
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\obj\Debug\KelikGame.exe
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\obj\Debug\KelikGame.pdb
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\bin\Debug\Images\background.png
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\bin\Debug\Images\background_800x600.png
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\bin\Debug\Images\asteroid.png
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\KelikGame\bin\Debug\Images\asteroid_60x60.png

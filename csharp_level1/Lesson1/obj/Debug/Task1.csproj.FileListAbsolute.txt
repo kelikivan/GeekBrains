@@ -1,0 +1,8 @@
+D:\GeekBrains\Lesson1\Lesson1\Task1\bin\Debug\Task1.exe.config
+D:\GeekBrains\Lesson1\Lesson1\Task1\bin\Debug\Task1.exe
+D:\GeekBrains\Lesson1\Lesson1\Task1\bin\Debug\Task1.pdb
+D:\GeekBrains\Lesson1\Lesson1\Task1\obj\Debug\Task1.csprojResolveAssemblyReference.cache
+D:\GeekBrains\Lesson1\Lesson1\Task1\obj\Debug\Task1.exe
+D:\GeekBrains\Lesson1\Lesson1\Task1\obj\Debug\Task1.pdb
+D:\GeekBrains\Lesson1\Lesson1\Task1\bin\Debug\Kelik.dll
+D:\GeekBrains\Lesson1\Lesson1\Task1\bin\Debug\Kelik.pdb

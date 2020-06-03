@@ -1,0 +1,9 @@
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\bin\Debug\Task1.exe.config
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\bin\Debug\Task1.exe
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\bin\Debug\Task1.pdb
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\bin\Debug\Kelik.dll
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\bin\Debug\Kelik.pdb
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\obj\Debug\Task1.1-Profile.csprojAssemblyReference.cache
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\obj\Debug\Task1.1-Profile.csproj.CopyComplete
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\obj\Debug\Task1.exe
+D:\По работе\GeekBrains_HomeWorks\Lesson1 - Келик Иван\Task1\obj\Debug\Task1.pdb

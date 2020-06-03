@@ -1,0 +1,6 @@
+D:\GitHub\GeekBrains_HomeWorks\ThreadsTesting\bin\Debug\ThreadsTesting.exe.config
+D:\GitHub\GeekBrains_HomeWorks\ThreadsTesting\bin\Debug\ThreadsTesting.exe
+D:\GitHub\GeekBrains_HomeWorks\ThreadsTesting\bin\Debug\ThreadsTesting.pdb
+D:\GitHub\GeekBrains_HomeWorks\ThreadsTesting\obj\Debug\ThreadsTesting.csprojAssemblyReference.cache
+D:\GitHub\GeekBrains_HomeWorks\ThreadsTesting\obj\Debug\ThreadsTesting.exe
+D:\GitHub\GeekBrains_HomeWorks\ThreadsTesting\obj\Debug\ThreadsTesting.pdb

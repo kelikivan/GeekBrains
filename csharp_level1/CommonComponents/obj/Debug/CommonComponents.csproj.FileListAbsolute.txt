@@ -1,0 +1,10 @@
+D:\GeekBrains\HomeWorks\Lesson1\Kelik\bin\Debug\CommonComponents.dll
+D:\GeekBrains\HomeWorks\Lesson1\Kelik\bin\Debug\CommonComponents.pdb
+D:\GeekBrains\HomeWorks\Lesson1\Kelik\obj\Debug\CommonComponents.csprojAssemblyReference.cache
+D:\GeekBrains\HomeWorks\Lesson1\Kelik\obj\Debug\CommonComponents.dll
+D:\GeekBrains\HomeWorks\Lesson1\Kelik\obj\Debug\CommonComponents.pdb
+D:\GitHub\GeekBrains_HomeWorks\CommonComponents\bin\Debug\CommonComponents.dll
+D:\GitHub\GeekBrains_HomeWorks\CommonComponents\bin\Debug\CommonComponents.pdb
+D:\GitHub\GeekBrains_HomeWorks\CommonComponents\obj\Debug\CommonComponents.csprojAssemblyReference.cache
+D:\GitHub\GeekBrains_HomeWorks\CommonComponents\obj\Debug\CommonComponents.dll
+D:\GitHub\GeekBrains_HomeWorks\CommonComponents\obj\Debug\CommonComponents.pdb

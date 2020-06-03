@@ -1,0 +1,6 @@
+D:\GitHub\GeekBrains_HomeWorks\MyTestingProject\bin\Debug\MyTestingProject.exe.config
+D:\GitHub\GeekBrains_HomeWorks\MyTestingProject\bin\Debug\MyTestingProject.exe
+D:\GitHub\GeekBrains_HomeWorks\MyTestingProject\bin\Debug\MyTestingProject.pdb
+D:\GitHub\GeekBrains_HomeWorks\MyTestingProject\obj\Debug\MyTestingProject.csprojAssemblyReference.cache
+D:\GitHub\GeekBrains_HomeWorks\MyTestingProject\obj\Debug\MyTestingProject.exe
+D:\GitHub\GeekBrains_HomeWorks\MyTestingProject\obj\Debug\MyTestingProject.pdb
