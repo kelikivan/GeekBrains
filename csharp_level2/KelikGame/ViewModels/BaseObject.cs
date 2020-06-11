@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace KelikGame
 {
-    public abstract class BaseObject
+    public abstract class BaseObject : ICollision
     {
         protected Point Pos;
         protected Point Dir;
@@ -15,22 +15,20 @@ namespace KelikGame
 
         protected BaseObject(Point pos, Point dir, Size size)
         {
+            if (pos.Y < 0 || pos.Y > Game.Height)
+                throw new GameObjectException("Некорректные параметры позиции объекта. Объект не создан!");
+
             Pos = pos;
             Dir = dir;
             Size = size;
         }
 
-        public virtual void Draw()
-        {
-            Game.Buffer.Graphics.DrawEllipse(Pens.White, Pos.X, Pos.Y, Size.Width, Size.Height);
-        }
+        public abstract void Draw();
 
-        public virtual void Update()
-        {
-            Pos.X += Dir.X;
-            Pos.Y += Dir.Y;
-            if (Pos.X < 0 || Pos.X > Game.Width) Dir.X = -Dir.X;
-            if (Pos.Y < 0 || Pos.Y > Game.Height) Dir.Y = -Dir.Y;
-        }
+        public abstract void Update();
+
+        public bool Collision(ICollision o) => o.Rect.IntersectsWith(this.Rect);
+
+        public Rectangle Rect => new Rectangle(Pos, Size);
     }
 }

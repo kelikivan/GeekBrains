@@ -1,0 +1,6 @@
+D:\GitHub\GeekBrains\csharp_level2\Lesson2\bin\Debug\Lesson2.exe.config
+D:\GitHub\GeekBrains\csharp_level2\Lesson2\bin\Debug\Lesson2.exe
+D:\GitHub\GeekBrains\csharp_level2\Lesson2\bin\Debug\Lesson2.pdb
+D:\GitHub\GeekBrains\csharp_level2\Lesson2\obj\Debug\Lesson2.csprojAssemblyReference.cache
+D:\GitHub\GeekBrains\csharp_level2\Lesson2\obj\Debug\Lesson2.exe
+D:\GitHub\GeekBrains\csharp_level2\Lesson2\obj\Debug\Lesson2.pdb

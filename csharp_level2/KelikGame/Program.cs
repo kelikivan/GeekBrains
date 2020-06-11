@@ -13,11 +13,12 @@ namespace KelikGame
         {
             Form form = new Form
             {
-                Width = 800,
-                Height = 600
+                Width = 1000,//Screen.PrimaryScreen.Bounds.Width,
+                Height = 700//Screen.PrimaryScreen.Bounds.Height
             };
             Game.Init(form);
             form.Show();
+            Game.Load();
             Game.Draw();
             Application.Run(form);
         }

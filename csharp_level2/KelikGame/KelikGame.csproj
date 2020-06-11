@@ -48,12 +48,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Basics\GameObjectException.cs" />
+    <Compile Include="Interfaces\ICollision.cs" />
+    <Compile Include="Interfaces\IRegenerator.cs" />
     <Compile Include="ViewModels\Asteroid.cs" />
     <Compile Include="ViewModels\BaseObject.cs" />
     <Compile Include="Game.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\Bullet.cs" />
     <Compile Include="ViewModels\Space.cs" />
+    <Compile Include="ViewModels\Star.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

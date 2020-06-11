@@ -7,12 +7,15 @@ using System.Threading.Tasks;
 
 namespace KelikGame
 {
-    public class Asteroid : BaseObject
+    public class Asteroid : BaseObject, IRegenerator
     {
         static Image Image => Image.FromFile("Images\\asteroid_60x60.png");
 
+        public int Power { get; set; }
+
         public Asteroid(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
+            Power = 1;
         }
 
         public override void Draw()
@@ -22,10 +25,13 @@ namespace KelikGame
 
         public override void Update()
         {
-            Pos.X += Dir.X;
-            //Pos.Y += Dir.Y;
-            if (Pos.X < 0 || Pos.X > Game.Width) Dir.X = -Dir.X;
-            //if (Pos.Y < 0 || Pos.Y > Game.Height) Dir.Y = -Dir.Y;
+            Pos.X -= Dir.X;
+            if (Pos.X < 0) Reset();
+        }
+
+        public void Reset()
+        {
+            Pos.X = Game.Width + Size.Width / 2;
         }
     }
 }
