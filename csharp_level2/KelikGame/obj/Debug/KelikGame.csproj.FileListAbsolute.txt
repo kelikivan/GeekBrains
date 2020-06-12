@@ -18,3 +18,4 @@ D:\GitHub\GeekBrains\csharp_level2\KelikGame\bin\Debug\KelikGame.pdb
 D:\GitHub\GeekBrains\csharp_level2\KelikGame\obj\Debug\KelikGame.csprojAssemblyReference.cache
 D:\GitHub\GeekBrains\csharp_level2\KelikGame\obj\Debug\KelikGame.exe
 D:\GitHub\GeekBrains\csharp_level2\KelikGame\obj\Debug\KelikGame.pdb
+D:\GitHub\GeekBrains\csharp_level2\KelikGame\bin\Debug\Images\ship.png

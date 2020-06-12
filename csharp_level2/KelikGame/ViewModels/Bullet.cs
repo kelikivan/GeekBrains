@@ -7,8 +7,9 @@ using System.Threading.Tasks;
 
 namespace KelikGame
 {
-    public class Bullet : BaseObject, IRegenerator
+    public class Bullet : BaseObject
     {
+        public bool IsActive = true;
         public Bullet(Point pos, Point dir, Size size) : base(pos, dir, size)
         {
         }
@@ -22,15 +23,7 @@ namespace KelikGame
         {
             Pos.X += Dir.X;
             if (Pos.X > Game.Width)
-            {
-                Reset();
-            }
-        }
-
-        public void Reset()
-        {
-            Pos.X = 0;
-            Pos.Y -= Dir.Y;
+                IsActive = false;
         }
     }
 }

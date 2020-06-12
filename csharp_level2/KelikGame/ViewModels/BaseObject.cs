@@ -13,9 +13,11 @@ namespace KelikGame
         protected Point Dir;
         protected Size Size;
 
+        public delegate void Message();
+
         protected BaseObject(Point pos, Point dir, Size size)
         {
-            if (pos.Y < 0 || pos.Y > Game.Height)
+            if (pos.Y < 0)
                 throw new GameObjectException("Некорректные параметры позиции объекта. Объект не создан!");
 
             Pos = pos;
