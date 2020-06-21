@@ -12,6 +12,7 @@ namespace KelikGame
         static Image Image => Image.FromFile("Images\\asteroid_60x60.png");
 
         public int Power { get; set; } = 3;
+        public bool IsDestroyed { get; set; }
 
         public Asteroid(Point pos, Point dir, Size size) : base(pos, dir, size)
         {

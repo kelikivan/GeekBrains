@@ -44,7 +44,7 @@ namespace KelikGame
 
         public void Down()
         {
-            if (Pos.Y < Game.Height) Pos.Y += Dir.Y;
+            if (Pos.Y < Game.Height - Size.Height) Pos.Y += Dir.Y;
         }
 
         public void Die()

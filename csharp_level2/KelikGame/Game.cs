@@ -27,7 +27,8 @@ namespace KelikGame
         static Space _backGround;
         static BaseObject[] _objs;
         static List<Bullet> _bullets = new List<Bullet>();
-        static Asteroid[] _asteroids;
+        static List<Asteroid> _asteroids = new List<Asteroid>();
+        static int _startAsteroidsCount = 25;
 
         static readonly Ship _ship = new Ship(new Point(10, 350), new Point(5, 5), new Size(45, 45));
         static MedicineChest _medicineChest { get; set; }
@@ -93,7 +94,6 @@ namespace KelikGame
         {
             _backGround = new Space(new Point(0, 0), new Point(2, 0), new Size(Width, Height));
             _objs = new BaseObject[40];
-            _asteroids = new Asteroid[25];
 
             for (var i = 0; i < _objs.Length; i++)
             {
@@ -104,14 +104,7 @@ namespace KelikGame
                     new Size(3, 3));
             }
 
-            for (var i = 0; i < _asteroids.Length; i++)
-            {
-                int r = Rnd.Next(1, 10);
-                _asteroids[i] = new Asteroid(
-                    new Point(Game.Width, Rnd.Next(25, Game.Height - 25)), 
-                    new Point(r, r), 
-                    new Size(50, 50));
-            }
+            AddAsteroids(_startAsteroidsCount);
         }
 
         public static void Draw()
@@ -147,7 +140,7 @@ namespace KelikGame
                 obj.Update();
 
             foreach (Bullet obj in _bullets)
-                obj?.Update();
+                obj.Update();
 
             _medicineChest?.Update();
             if (!_medicineChest?.IsActive ?? false)
@@ -160,33 +153,46 @@ namespace KelikGame
                 _medicineChest = null;
             }
 
-            for (var i = 0; i < _asteroids.Length; i++)
+            if (_asteroids.Count == 0)
+                AddAsteroids(_startAsteroidsCount + 1);
+
+            foreach (Asteroid asteroid in _asteroids)
             {
-                if (_asteroids[i] == null) continue;
+                asteroid.Update();
 
-                _asteroids[i].Update();
-
-                foreach(Bullet bullet in _bullets)
+                var bullet = _bullets.FirstOrDefault(b => b.Collision(asteroid));
+                if (bullet != null)
                 {
-                    if (!bullet.Collision(_asteroids[i])) continue;
-
                     System.Media.SystemSounds.Hand.Play();
-                    _asteroids[i] = null;
+                    asteroid.IsDestroyed = true;
                     _bullets.Remove(bullet);
                     _ship.AddScore();
-                    break;
+                    continue;
                 }
 
-                if (_asteroids[i] == null) continue;
-                if (!_ship.Collision(_asteroids[i])) continue;
+                if (!_ship.Collision(asteroid)) continue;
 
-                _asteroids[i] = null;
+                asteroid.IsDestroyed = true;
                 _ship.ReduceEnergy(Rnd.Next(1, 20));
                 System.Media.SystemSounds.Asterisk.Play();
                 if (_ship.Energy <= 0) _ship.Die();
             }
+            _asteroids.RemoveAll(a => a.IsDestroyed);
         }
 
+        private static void AddAsteroids(int count)
+        {
+            for (var i = 0; i < count; i++)
+            {
+                int r = Rnd.Next(2, 10);
+                _asteroids.Add(new Asteroid(
+                    new Point(Game.Width, Rnd.Next(25, Game.Height - 25)),
+                    new Point(r, r),
+                    new Size(50, 50))
+                    );
+            }
+            _startAsteroidsCount = count;
+        }
         private static void AddMedicineChest()
         {
             if (_medicineChest != null) return;
