@@ -49,6 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Basics\GameObjectException.cs" />
+    <Compile Include="Basics\Journal.cs" />
     <Compile Include="Interfaces\ICollision.cs" />
     <Compile Include="Interfaces\IRegenerator.cs" />
     <Compile Include="ViewModels\Asteroid.cs" />
@@ -57,6 +58,7 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\Bullet.cs" />
+    <Compile Include="ViewModels\MedicineChest.cs" />
     <Compile Include="ViewModels\Ship.cs" />
     <Compile Include="ViewModels\Space.cs" />
     <Compile Include="ViewModels\Star.cs" />
@@ -72,6 +74,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\background_800x600.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Images\medicial_chest.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\ship.png">

@@ -12,22 +12,25 @@ namespace KelikGame
     {
         const int MAX_HEIGHT = 1000, MAX_WIDTH = 1000;
 
-        private static BufferedGraphicsContext _context;
+        static BufferedGraphicsContext _context;
         public static BufferedGraphics Buffer;
 
-        private static Timer _timer = new Timer() { Interval = 100 };
-        public static Random Rnd = new Random();
+        static DateTime _dateTime { get; set; }
+        static readonly Timer _timer = new Timer() { Interval = 100 };
+        static readonly Timer _medicineTimer = new Timer() { Interval = 15000 };
+        static readonly Random Rnd = new Random();
 
         // Свойства - Ширина и высота игрового поля
         public static int Width { get; set; }
         public static int Height { get; set; }
 
         static Space _backGround;
-        private static BaseObject[] _objs;
-        private static List<Bullet> _bullets = new List<Bullet>();
-        private static Asteroid[] _asteroids;
+        static BaseObject[] _objs;
+        static List<Bullet> _bullets = new List<Bullet>();
+        static Asteroid[] _asteroids;
 
-        private static Ship _ship = new Ship(new Point(10, 350), new Point(5, 5), new Size(45, 45));
+        static readonly Ship _ship = new Ship(new Point(10, 350), new Point(5, 5), new Size(45, 45));
+        static MedicineChest _medicineChest { get; set; }
 
         public static void Init(Form form)
         {
@@ -56,10 +59,17 @@ namespace KelikGame
             Load();
 
             _timer.Start();
+            _dateTime = DateTime.Now;
             _timer.Tick += (sender, e) => 
             {
                 Draw();
                 Update();
+            };
+
+            _medicineTimer.Start();
+            _medicineTimer.Tick += (sender, e) =>
+            {
+                AddMedicineChest();
             };
 
             form.KeyDown += (sender, e) =>
@@ -82,8 +92,8 @@ namespace KelikGame
         public static void Load()
         {
             _backGround = new Space(new Point(0, 0), new Point(2, 0), new Size(Width, Height));
-            _objs = new BaseObject[30];
-            _asteroids = new Asteroid[20];
+            _objs = new BaseObject[40];
+            _asteroids = new Asteroid[25];
 
             for (var i = 0; i < _objs.Length; i++)
             {
@@ -98,9 +108,9 @@ namespace KelikGame
             {
                 int r = Rnd.Next(1, 10);
                 _asteroids[i] = new Asteroid(
-                    new Point(Game.Width, Rnd.Next(30, Game.Height - 30)), 
+                    new Point(Game.Width, Rnd.Next(25, Game.Height - 25)), 
                     new Point(r, r), 
-                    new Size(41, 41));
+                    new Size(50, 50));
             }
         }
 
@@ -115,10 +125,17 @@ namespace KelikGame
             foreach (Bullet obj in _bullets)
                 obj.Draw();
 
+            _medicineChest?.Draw();
             _ship?.Draw();
-            if (_ship != null)
-                Buffer.Graphics.DrawString("Energy:" + _ship.Energy, SystemFonts.DefaultFont, Brushes.White, 0, 0);
 
+            if (_ship != null)
+            {
+                Buffer.Graphics.DrawString($"Energy: {_ship.Energy}", SystemFonts.DefaultFont, Brushes.White, 0, 0);
+                Buffer.Graphics.DrawString($"Score: {_ship.Score}", SystemFonts.DefaultFont, Brushes.White, 100, 0);
+            }
+
+            TimeSpan time = DateTime.Now - _dateTime;
+            Buffer.Graphics.DrawString($"Time: {time.ToString(@"mm\:ss")}", SystemFonts.DefaultFont, Brushes.White, 200, 0);
             Buffer.Render();
         }
 
@@ -131,6 +148,17 @@ namespace KelikGame
 
             foreach (Bullet obj in _bullets)
                 obj?.Update();
+
+            _medicineChest?.Update();
+            if (!_medicineChest?.IsActive ?? false)
+                _medicineChest = null;
+
+            if (_medicineChest != null && _ship.Collision(_medicineChest))
+            {
+                System.Media.SystemSounds.Beep.Play();
+                _ship.IncreaseEnergy(_medicineChest.Energy);
+                _medicineChest = null;
+            }
 
             for (var i = 0; i < _asteroids.Length; i++)
             {
@@ -145,18 +173,29 @@ namespace KelikGame
                     System.Media.SystemSounds.Hand.Play();
                     _asteroids[i] = null;
                     _bullets.Remove(bullet);
+                    _ship.AddScore();
                     break;
                 }
 
                 if (_asteroids[i] == null) continue;
-
                 if (!_ship.Collision(_asteroids[i])) continue;
 
                 _asteroids[i] = null;
-                _ship?.EnergyLow(Rnd.Next(1, 20));
+                _ship.ReduceEnergy(Rnd.Next(1, 20));
                 System.Media.SystemSounds.Asterisk.Play();
-                if (_ship.Energy <= 0) _ship?.Die();
+                if (_ship.Energy <= 0) _ship.Die();
             }
+        }
+
+        private static void AddMedicineChest()
+        {
+            if (_medicineChest != null) return;
+
+            int r = Rnd.Next(4, 10);
+            _medicineChest = new MedicineChest(
+                new Point(Game.Width, Rnd.Next(25, Game.Height - 25)),
+                new Point(r, r),
+                new Size(50, 50));
         }
 
         public static void Finish()
