@@ -1,0 +1,14 @@
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\bin\Debug\WpfProject.exe.config
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\bin\Debug\WpfProject.exe
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\bin\Debug\WpfProject.pdb
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.csprojAssemblyReference.cache
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\MainWindow.g.cs
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\App.g.cs
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject_MarkupCompile.cache
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject_MarkupCompile.lref
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\MainWindow.baml
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.g.resources
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.Properties.Resources.resources
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.csproj.GenerateResource.cache
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.exe
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.pdb

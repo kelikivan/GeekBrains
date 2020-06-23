@@ -1,0 +1,54 @@
+﻿<Window x:Class="WpfProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfProject"
+        mc:Ignorable="d"
+        Title="Ведение списка сотрудников" Height="450" Width="800">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="customDataTemplate">
+                <StackPanel>
+                    <TextBlock Text="{Binding BirthDate, StringFormat={}{0:dd.MM.yyyy}}" />
+                </StackPanel>
+            </DataTemplate>
+        </Grid.Resources>
+
+        <TabControl HorizontalAlignment="Stretch" Height="auto" Margin="10,10,0,0" VerticalAlignment="Stretch" Width="auto">
+            <TabItem Header="Сотрудники">
+                <Grid Background="#FFE5E5E5">
+                    <ToolBar DockPanel.Dock="Top" HorizontalAlignment="Stretch" Height="35" VerticalAlignment="Top" Width="auto">
+                        <Button Content="Добавить" Height="30" VerticalAlignment="Top" Width="60"/>
+                        <Button Content="Редактировать" Height="30" VerticalAlignment="Top" Width="100"/>
+                    </ToolBar>
+                    <DataGrid x:Name="_dgEmployees" AutoGenerateColumns="False"
+                        HorizontalAlignment="Stretch" Height="auto" Margin="0,35,0,0" VerticalAlignment="Stretch" Width="auto">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Код" Binding="{Binding ID}" Width="30" />
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" Width="300" />
+                            <DataGridTemplateColumn Header="Дата рождения" CellTemplate="{StaticResource customDataTemplate}" />
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" />
+                            <DataGridTextColumn Header="Отдел" Binding="{Binding DepartmentID}" Width="100" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Отделы">
+                <Grid Background="#FFE5E5E5">
+                    <ToolBar DockPanel.Dock="Top" HorizontalAlignment="Stretch" Height="35" VerticalAlignment="Top" Width="auto">
+                        <Button Content="Добавить" Height="30" VerticalAlignment="Top" Width="60"/>
+                        <Button Content="Редактировать" Height="30" VerticalAlignment="Top" Width="100"/>
+                    </ToolBar>
+                    <DataGrid x:Name="_dgDepartments" AutoGenerateColumns="False"
+                        HorizontalAlignment="Stretch" Margin="0,35,0,0" VerticalAlignment="Stretch">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Код" Binding="{Binding ID}" Width="30" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="200" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

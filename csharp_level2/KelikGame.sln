@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KelikGame", "KelikGame\Keli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lesson2", "Lesson2\Lesson2.csproj", "{4409D824-E29B-440D-B5D0-1D47F3673A6F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfProject", "WpfProject\WpfProject.csproj", "{071110F2-29D6-47B4-9255-3F2B19F90F96}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{4409D824-E29B-440D-B5D0-1D47F3673A6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4409D824-E29B-440D-B5D0-1D47F3673A6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4409D824-E29B-440D-B5D0-1D47F3673A6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{071110F2-29D6-47B4-9255-3F2B19F90F96}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{071110F2-29D6-47B4-9255-3F2B19F90F96}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{071110F2-29D6-47B4-9255-3F2B19F90F96}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{071110F2-29D6-47B4-9255-3F2B19F90F96}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
