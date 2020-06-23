@@ -4,6 +4,10 @@
              xmlns:local="clr-namespace:WpfProject"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <Style TargetType="{x:Type DataGridColumnHeader}">
+            <Setter Property="FontWeight"  Value="Bold" />
+            <Setter Property="HorizontalAlignment" Value="Stretch" />
+            <Setter Property="HorizontalContentAlignment" Value="Center" />
+        </Style>
     </Application.Resources>
 </Application>

@@ -10,7 +10,7 @@
         <Grid.Resources>
             <DataTemplate x:Key="customDataTemplate">
                 <StackPanel>
-                    <TextBlock Text="{Binding BirthDate, StringFormat={}{0:dd.MM.yyyy}}" />
+                    <TextBlock Text="{Binding BirthDate, UpdateSourceTrigger=PropertyChanged, Mode=OneWay, StringFormat={}{0:dd.MM.yyyy}}" />
                 </StackPanel>
             </DataTemplate>
         </Grid.Resources>
@@ -19,17 +19,19 @@
             <TabItem Header="Сотрудники">
                 <Grid Background="#FFE5E5E5">
                     <ToolBar DockPanel.Dock="Top" HorizontalAlignment="Stretch" Height="35" VerticalAlignment="Top" Width="auto">
-                        <Button Content="Добавить" Height="30" VerticalAlignment="Top" Width="60"/>
-                        <Button Content="Редактировать" Height="30" VerticalAlignment="Top" Width="100"/>
+                        <Button x:Name="_btnAddEmployee" Content="Добавить" Click="_btnAddEmployee_Click" 
+                                Height="30" VerticalAlignment="Top" Width="60"/>
+                        <Button x:Name="_btnEditEmployee" Content="Редактировать" Click="_btnEditEmployee_Click"
+                                Height="30" VerticalAlignment="Top" Width="100"/>
                     </ToolBar>
                     <DataGrid x:Name="_dgEmployees" AutoGenerateColumns="False"
                         HorizontalAlignment="Stretch" Height="auto" Margin="0,35,0,0" VerticalAlignment="Stretch" Width="auto">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Код" Binding="{Binding ID}" Width="30" />
-                            <DataGridTextColumn Header="ФИО" Binding="{Binding FullName}" Width="300" />
+                            <DataGridTextColumn Header="Код" Binding="{Binding ID, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Width="30" />
+                            <DataGridTextColumn Header="ФИО" Binding="{Binding FullName, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Width="300" />
                             <DataGridTemplateColumn Header="Дата рождения" CellTemplate="{StaticResource customDataTemplate}" />
-                            <DataGridTextColumn Header="Возраст" Binding="{Binding Age}" />
-                            <DataGridTextColumn Header="Отдел" Binding="{Binding DepartmentID}" Width="100" />
+                            <DataGridTextColumn Header="Возраст" Binding="{Binding Age, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" />
+                            <DataGridTextColumn Header="Отдел" Binding="{Binding Department, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Width="200" />
                         </DataGrid.Columns>
                     </DataGrid>
                 </Grid>
@@ -37,16 +39,29 @@
             <TabItem Header="Отделы">
                 <Grid Background="#FFE5E5E5">
                     <ToolBar DockPanel.Dock="Top" HorizontalAlignment="Stretch" Height="35" VerticalAlignment="Top" Width="auto">
-                        <Button Content="Добавить" Height="30" VerticalAlignment="Top" Width="60"/>
-                        <Button Content="Редактировать" Height="30" VerticalAlignment="Top" Width="100"/>
+                        <Button x:Name="_btnAddDepartment" Content="Добавить" Click="_btnAddDepartment_Click"
+                                Height="30" VerticalAlignment="Top" Width="60"/>
+                        <Button x:Name="_btnEditDepartment" Content="Редактировать" Click="_btnEditDepartment_Click"
+                                Height="30" VerticalAlignment="Top" Width="100"/>
                     </ToolBar>
                     <DataGrid x:Name="_dgDepartments" AutoGenerateColumns="False"
                         HorizontalAlignment="Stretch" Margin="0,35,0,0" VerticalAlignment="Stretch">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Код" Binding="{Binding ID}" Width="30" />
-                            <DataGridTextColumn Header="Наименование" Binding="{Binding Name}" Width="200" />
+                            <DataGridTextColumn Header="Код" Binding="{Binding ID, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Width="40" />
+                            <DataGridTextColumn Header="Наименование" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged, Mode=OneWay}" Width="200" />
                         </DataGrid.Columns>
                     </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Свой контрол">
+                <Grid>
+                    <Button FontWeight="Bold" Width="140" Height="30">
+                        <WrapPanel Name="pnlMain">
+                            <TextBlock Foreground="Blue">Разно</TextBlock>
+                            <TextBlock Foreground="Red">цветная</TextBlock>
+                            <TextBlock>кнопка</TextBlock>
+                        </WrapPanel>
+                    </Button>
                 </Grid>
             </TabItem>
         </TabControl>

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,25 +18,24 @@ namespace WpfProject.Controls
     /// <summary>
     /// Interaction logic for DepartmentWindow.xaml
     /// </summary>
-    public partial class EmployeeWindow : Window
+    public partial class DepartmentWindow : Window
     {
-        public Employee CurrentEmployee { get; set; } 
-        public EmployeeWindow(ObservableCollection<Department> departments)
+        public Department CurrentDepartment { get; set; }
+        public DepartmentWindow()
         {
             InitializeComponent();
-            _cbDepartments.ItemsSource = departments.ToList();
         }
 
         public bool? ShowAdd()
         {
-            CurrentEmployee = new Employee();
-            _mainGrid.DataContext = CurrentEmployee;
+            CurrentDepartment = new Department();
+            _mainGrid.DataContext = CurrentDepartment;
             return ShowDialog();
         }
-        public bool? ShowEdit(Employee employee)
+        public bool? ShowEdit(Department department)
         {
-            CurrentEmployee = employee;
-            _mainGrid.DataContext = CurrentEmployee;
+            CurrentDepartment = department;
+            _mainGrid.DataContext = CurrentDepartment;
             return ShowDialog();
         }
 

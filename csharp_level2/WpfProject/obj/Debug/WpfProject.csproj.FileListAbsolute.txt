@@ -12,3 +12,8 @@ D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.Properties.Re
 D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.csproj.GenerateResource.cache
 D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.exe
 D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\WpfProject.pdb
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\Controls\EmployeeWindow.g.cs
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\Controls\EmployeeWindow.baml
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\App.baml
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\Controls\DepartmentWindow.g.cs
+D:\GitHub\GeekBrains\csharp_level2\WpfProject\obj\Debug\Controls\DepartmentWindow.baml

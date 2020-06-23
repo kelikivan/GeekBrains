@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfProject.ViewModels;
+using WpfProject.Controls;
 
 namespace WpfProject
 {
@@ -24,28 +25,63 @@ namespace WpfProject
     {
         public ObservableCollection<Department> Departments = new ObservableCollection<Department>
         {
-            new Department(1, "Разработка ПО"),
-            new Department(2, "Тестирование"),
-            new Department(3, "Бухгалтерия"),
-            new Department(4, "Управление персоналом"),
-            new Department(5, "Продажи")
+            new Department("Разработка ПО"),
+            new Department("Тестирование"),
+            new Department("Бухгалтерия"),
+            new Department("Управление персоналом"),
+            new Department("Продажи")
         };
 
         public ObservableCollection<Employee> Employees = new ObservableCollection<Employee>
         {
-            new Employee(1, "Келик", "Иван") { BirthDate = new DateTime(1991, 03, 18) },
-            new Employee(2, "Иванов", "Петр"),
-            new Employee(3, "Смирнов", "Тимофей"),
-            new Employee(4, "Донцов", "Антон"),
-            new Employee(5, "Белых", "Савва")
+            new Employee("Келик", "Иван") { BirthDate = new DateTime(1991, 03, 18) },
+            new Employee("Иванов", "Петр"),
+            new Employee("Смирнов", "Тимофей"),
+            new Employee("Донцов", "Антон"),
+            new Employee("Белых", "Савва")
         };
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _dgEmployees.ItemsSource = Employees;
+            _dgEmployees.ItemsSource = Employees.ToList();
             _dgDepartments.ItemsSource = Departments;
+        }
+
+        private void _btnAddEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new EmployeeWindow(Departments);
+            bool? isAccepted = w.ShowAdd();
+            if (isAccepted != null && (bool)isAccepted)
+                Employees.Add(w.CurrentEmployee);
+        }
+
+        private void _btnEditEmployee_Click(object sender, RoutedEventArgs e)
+        {
+            Employee selectedEmployee = _dgEmployees.SelectedItem as Employee;
+            var w = new EmployeeWindow(Departments);
+            bool? isAccepted = w.ShowEdit(selectedEmployee);
+            _dgEmployees.Items.Refresh();
+            //if (isAccepted != null)
+            //    MessageBox.Show("ТЕст");
+        }
+
+        private void _btnAddDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            var w = new DepartmentWindow();
+            bool? isAccepted = w.ShowAdd();
+            if (isAccepted != null && (bool)isAccepted)
+                Departments.Add(w.CurrentDepartment);
+        }
+
+        private void _btnEditDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            Department selectedDepartment = _dgDepartments.SelectedItem as Department;
+            var w = new DepartmentWindow();
+            bool? isAccepted = w.ShowEdit(selectedDepartment);
+            //if (isAccepted != null)
+            //    MessageBox.Show("ТЕст");
         }
     }
 }
