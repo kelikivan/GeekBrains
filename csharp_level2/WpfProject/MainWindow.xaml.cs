@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using WpfProject.ViewModels;
 using WpfProject.Controls;
+using WpfProject.Presenters;
 
 namespace WpfProject
 {
@@ -23,65 +24,64 @@ namespace WpfProject
     /// </summary>
     public partial class MainWindow : Window
     {
-        public ObservableCollection<Department> Departments = new ObservableCollection<Department>
-        {
-            new Department("Разработка ПО"),
-            new Department("Тестирование"),
-            new Department("Бухгалтерия"),
-            new Department("Управление персоналом"),
-            new Department("Продажи")
-        };
-
-        public ObservableCollection<Employee> Employees = new ObservableCollection<Employee>
-        {
-            new Employee("Келик", "Иван") { BirthDate = new DateTime(1991, 03, 18) },
-            new Employee("Иванов", "Петр"),
-            new Employee("Смирнов", "Тимофей"),
-            new Employee("Донцов", "Антон"),
-            new Employee("Белых", "Савва")
-        };
+        private readonly string ConnectionString = Properties.Settings.Default.ConnectionString;
+        private EmployeeRegisterPresenter EmployeesPresenter { get; set; }
+        private DepartmentRegisterPresenter DepartmentsPresenter { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
 
-            _dgEmployees.ItemsSource = Employees.ToList();
-            _dgDepartments.ItemsSource = Departments;
+            InitializeDepartments();
+            InitializeEmployees();
         }
 
-        private void _btnAddEmployee_Click(object sender, RoutedEventArgs e)
+        private void InitializeDepartments()
         {
-            var w = new EmployeeWindow(Departments);
-            bool? isAccepted = w.ShowAdd();
-            if (isAccepted != null && (bool)isAccepted)
-                Employees.Add(w.CurrentEmployee);
+            DepartmentsPresenter = new DepartmentRegisterPresenter(ConnectionString);
+
+            _btnAddDepartment.Click += (sender, e) =>
+            {
+                var w = new DepartmentWindow();
+                bool? isAccepted = w.ShowAdd();
+                if (isAccepted != null && (bool)isAccepted)
+                    DepartmentsPresenter.Items.Add(w.CurrentDepartment);
+            };
+
+            DepartmentsPresenter.EditItemAccepted = () => { _dgDepartments.Items.Refresh(); };
+            _btnEditDepartment.Click += (sender, e) =>
+            {
+                DepartmentsPresenter.SelectedItem = _dgDepartments.SelectedItem as Department;
+                var w = new DepartmentWindow();
+                bool? isAccepted = w.ShowEdit(DepartmentsPresenter.SelectedItem);
+                DepartmentsPresenter.EditItemAccepted?.Invoke();
+            };
+
+            _dgDepartments.ItemsSource = DepartmentsPresenter.Items;
         }
 
-        private void _btnEditEmployee_Click(object sender, RoutedEventArgs e)
+        private void InitializeEmployees()
         {
-            Employee selectedEmployee = _dgEmployees.SelectedItem as Employee;
-            var w = new EmployeeWindow(Departments);
-            bool? isAccepted = w.ShowEdit(selectedEmployee);
-            _dgEmployees.Items.Refresh();
-            //if (isAccepted != null)
-            //    MessageBox.Show("ТЕст");
-        }
+            EmployeesPresenter = new EmployeeRegisterPresenter(ConnectionString);
 
-        private void _btnAddDepartment_Click(object sender, RoutedEventArgs e)
-        {
-            var w = new DepartmentWindow();
-            bool? isAccepted = w.ShowAdd();
-            if (isAccepted != null && (bool)isAccepted)
-                Departments.Add(w.CurrentDepartment);
-        }
+            _btnAddEmployee.Click += (sender, e) =>
+            {
+                var w = new EmployeeWindow(DepartmentsPresenter.Items);
+                bool? isAccepted = w.ShowAdd();
+                if (isAccepted != null && (bool)isAccepted)
+                    EmployeesPresenter.Items.Add(w.CurrentEmployee);
+            };
 
-        private void _btnEditDepartment_Click(object sender, RoutedEventArgs e)
-        {
-            Department selectedDepartment = _dgDepartments.SelectedItem as Department;
-            var w = new DepartmentWindow();
-            bool? isAccepted = w.ShowEdit(selectedDepartment);
-            //if (isAccepted != null)
-            //    MessageBox.Show("ТЕст");
+            EmployeesPresenter.EditItemAccepted = () => { _dgEmployees.Items.Refresh(); };
+            _btnEditEmployee.Click += (sender, e) =>
+            {
+                EmployeesPresenter.SelectedItem = _dgEmployees.SelectedItem as Employee;
+                var w = new EmployeeWindow(DepartmentsPresenter.Items);
+                bool? isAccepted = w.ShowEdit(EmployeesPresenter.SelectedItem);
+                EmployeesPresenter.EditItemAccepted?.Invoke();
+            };
+
+            _dgEmployees.ItemsSource = EmployeesPresenter.Items;
         }
     }
 }

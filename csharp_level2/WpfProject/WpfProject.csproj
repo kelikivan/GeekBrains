@@ -62,8 +62,12 @@
     <Compile Include="Controls\EmployeeWindow.xaml.cs">
       <DependentUpon>EmployeeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Presenters\DepartmentRegisterPresenter.cs" />
+    <Compile Include="Presenters\EmployeeRegisterPresenter.cs" />
+    <Compile Include="Presenters\RegisterBase.cs" />
     <Compile Include="ViewModels\Department.cs" />
     <Compile Include="ViewModels\Employee.cs" />
+    <Compile Include="ViewModels\RegisterItem.cs" />
     <Page Include="Controls\DepartmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -104,7 +108,7 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>

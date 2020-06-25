@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfProject.ViewModels
 {
-    public class Department : INotifyPropertyChanged
+    public class Department : RegisterItem, INotifyPropertyChanged
     {
         static int _generator;
         public Department()
@@ -20,8 +20,6 @@ namespace WpfProject.ViewModels
             ID = ++_generator;
             Name = name;
         }
-
-        public int ID { get; set; }
 
         private string _privateName;
         public string Name

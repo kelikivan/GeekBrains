@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace WpfProject.ViewModels
 {
-    public class Employee : INotifyPropertyChanged
+    public class Employee : RegisterItem, INotifyPropertyChanged
     {
         static int _generator;
         public Employee()
@@ -28,11 +28,9 @@ namespace WpfProject.ViewModels
         private DateTime? _privateBirthDate;
         private Department _privateDepartment;
 
-        public int ID { get; set; }
         /// <summary>
         /// Фамилия
-        /// </summary>
-        
+        /// </summary>     
         public string LastName
         {
             get => _privateLastName;
